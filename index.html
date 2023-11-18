@@ -8,16 +8,6 @@
   <body>
     <div id="root">Not Rendered</div>
 
-    <script>
-      const heading1 = React.createElement(
-        "h1",
-        { id: "heading1" },
-        "Namate Everyone!"
-      );
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      //react overrides root with render
-      root.render(heading1);
-    </script>
     <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.development.js"
@@ -26,5 +16,24 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
+    <script>
+      const heading1 = React.createElement(
+        "h1",
+        { id: "heading1" },
+        "Heading1"
+      );
+      const heading2 = React.createElement(
+        "h1",
+        { id: "heading2" },
+        "Heading2"
+      );
+      const container = React.createElement("div", { id: "container" }, [
+        heading1,
+        heading2,
+      ]);
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      //react overrides root with render
+      root.render(container);
+    </script>
   </body>
 </html>
