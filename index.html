@@ -6,10 +6,13 @@
     <title>Namaste React</title>
   </head>
   <body>
-    <!-- this is possible to segrigate react element and plane html element but not recomended to use -->
-    <div id="header">Header</div>
-    <div id="root"></div>
-    <div id="footer">Footer</div>
+    <div id="root">
+      <h1 id="heading1">heading</h1>
+      <h1 id="heading1">heading</h1>
+      <h1 id="heading1">heading</h1>
+      <h1 id="heading1">heading</h1>
+      <h1 id="heading1">heading</h1>
+    </div>
   </body>
   <script
     crossorigin
@@ -20,7 +23,11 @@
     src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
   ></script>
   <script>
-    const heading1 = React.createElement("h1", {}, "Namate Everyone!");
+    const heading1 = React.createElement(
+      "h1",
+      { id: "heading1" },
+      "Namate Everyone!"
+    );
     const root = ReactDOM.createRoot(document.getElementById("root"));
     //passing react element to the root means modifying our dom
     root.render(heading1);
