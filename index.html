@@ -6,13 +6,7 @@
     <title>Namaste React</title>
   </head>
   <body>
-    <div id="root">
-      <h1 id="heading1">heading</h1>
-      <h1 id="heading1">heading</h1>
-      <h1 id="heading1">heading</h1>
-      <h1 id="heading1">heading</h1>
-      <h1 id="heading1">heading</h1>
-    </div>
+    <div id="root">Not Rendered</div>
   </body>
   <script
     crossorigin
@@ -29,7 +23,7 @@
       "Namate Everyone!"
     );
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    //passing react element to the root means modifying our dom
+    //react overrides root with render
     root.render(heading1);
   </script>
 </html>
