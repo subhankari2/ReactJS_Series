@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react-live",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subhankari2/ReactJS_Series.git"
+  },
+  "author": "subhankari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subhankari2/ReactJS_Series/issues"
+  },
+  "homepage": "https://github.com/subhankari2/ReactJS_Series#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  }
+}
