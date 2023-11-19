@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Namaste React</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <div id="root">Not Rendered</div>
@@ -16,24 +17,6 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
-    <script>
-      const heading1 = React.createElement(
-        "h1",
-        { id: "heading1" },
-        "Heading1"
-      );
-      const heading2 = React.createElement(
-        "h1",
-        { id: "heading2" },
-        "Heading2"
-      );
-      const container = React.createElement("div", { id: "container" }, [
-        heading1,
-        heading2,
-      ]);
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      //react overrides root with render
-      root.render(container);
-    </script>
+    <script src="App.js"></script>
   </body>
 </html>
