@@ -16,5 +16,6 @@
       ]);
       const root = ReactDOM.createRoot(document.getElementById("root"));
       //react overrides root with render
+      console.log("root is created",root)
       root.render(container);
 
