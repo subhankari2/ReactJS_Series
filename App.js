@@ -1,4 +1,4 @@
-      import React from "react";
+      import {createElement} from "react";
       import ReactDOM from "react-dom/client";
 /**
   <div class="header">
@@ -9,7 +9,7 @@
     </div>
  */
 
-      const heading1 = React.createElement(
+      const heading1 = createElement(
         "h1",
         { 
           id: "heading1" ,
@@ -17,7 +17,7 @@
       },
         "Namaste React"
       );
-      const about = React.createElement(
+      const about = createElement(
         "li",
         { 
           id: "about",
@@ -25,9 +25,9 @@
         },
         "About Us"
         );
-        const support=React.createElement("li",{id:"support",key:"support"},"Suport");
-        const home=React.createElement("li",{id:"home",key:"home"},"Home");
-        const list=React.createElement("ul",{id:"list",key:"list"},[about,support,home]);
-      const header=React.createElement("div",{id:"header",key:"header"},[heading1,list]);
+        const support=createElement("li",{id:"support",key:"support"},"Suport");
+        const home=createElement("li",{id:"home",key:"home"},"Home");
+        const list=createElement("ul",{id:"list",key:"list"},[about,support,home]);
+      const header=createElement("div",{id:"header",key:"header"},[heading1,list]);
       const root=ReactDOM.createRoot(document.getElementById("root"));
       root.render(header);
