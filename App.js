@@ -1,3 +1,5 @@
+      import React from "react";
+      import ReactDOM from "react-dom/client";
       const heading1 = React.createElement(
         "h1",
         { id: "heading1" },
@@ -14,5 +16,6 @@
       ]);
       const root = ReactDOM.createRoot(document.getElementById("root"));
       //react overrides root with render
+      console.log("root is created",root)
       root.render(container);
 
