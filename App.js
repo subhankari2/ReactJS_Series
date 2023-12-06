@@ -2,19 +2,15 @@
       import ReactDOM from "react-dom/client";
 
       const HeaderElement=()=>(
-        <h1 id="h1" key="h1">Namaste React Element</h1>
+        <h1 id="h1" key="h1">Component Composition</h1>
       ) 
-      var xyz="js code inside functional component"
       const HeaderComponent1=()=>{
         return (
         <div>
-          {HeaderElement()}
-          <HeaderElement />
-          <h1>Namaste React Functional Component</h1>
-          <h2>Namaste React Functional Component</h2>
+          <HeaderElement/>
+          <h1>Namaste React</h1>
         </div>
         )
       }
       const root=ReactDOM.createRoot(document.getElementById("root"));
-      // root.render(headerElement);
       root.render(<HeaderComponent1 />);
