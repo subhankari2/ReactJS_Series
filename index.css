@@ -1,3 +1,17 @@
-#container {
-  background-color: red;
+.logo {
+  width: 90px;
+  height: 70px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 3px 1px #d3d3d3;
+}
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+}
+.nav-items > ul > li {
+  padding: 10px;
 }
