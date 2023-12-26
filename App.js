@@ -16,14 +16,25 @@
          </div>
         );
       };
+      const restaurantCard={
+        image:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/l4ppu8o6nhdospxcnrkh",
+        name:"Cafe Niloufer Premium Lounge",
+        rating:"4.2",
+        cuisines:["Bakery", "Bevarages", "Snacks", "Deserts"],
+        location:"Banjara Hills"
+      }
+
+
+
+
       const RestaurantCard=()=>{
         return(
           <div className="card" id='restaurant'>
-            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/l4ppu8o6nhdospxcnrkh" alt="restaurant" />
-              <h2> Cafe Niloufer Premium Lounge</h2>
-              <h2>4.2 stars</h2>
-              <p>Bakery,Bevarages,Snacks,Deserts</p>
-              <p>Banjara Hills</p>
+            <img src={restaurantCard.image} alt="restaurant" />
+              <h2>{restaurantCard.name}</h2>
+              <h3>{restaurantCard.rating} star</h3>
+              <h4>{restaurantCard.cuisines.join(", ")}</h4>
+              <p>{restaurantCard.location}</p>
           </div>
         )
       }
