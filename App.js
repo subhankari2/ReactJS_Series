@@ -929,15 +929,14 @@
 
 
 
-      const RestaurantCard=(props)=>{
-        console.log(props)
+      const RestaurantCard=({restaurant})=>{
         return(
           <div className="card">
-            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+props.restaurant.info?.cloudinaryImageId} alt="restaurant" />
-              <h2>{ props.restaurant.info?.name}</h2>
-              <h3>{ props.restaurant.info?.avgRating} star</h3>
-              <h4>{props.restaurant.info?.cuisines.join(", ")}</h4>
-              <p>{props.restaurant.info?.locality}</p>
+            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+restaurant.info?.cloudinaryImageId} alt="restaurant" />
+              <h2>{ restaurant.info?.name}</h2>
+              <h3>{ restaurant.info?.avgRating} star</h3>
+              <h4>{restaurant.info?.cuisines.join(", ")}</h4>
+              <p>{restaurant.info?.locality}</p>
           </div>
         )
       }
