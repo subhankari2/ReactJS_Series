@@ -928,16 +928,16 @@
       ]
 
 
-const imageid="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
-      const RestaurantCard=()=>{
+      const RestaurantCard=(props)=>{
+        console.log(props)
         return(
           <div className="card">
-            <img src={imageid+restaurants[0].info.cloudinaryImageId} alt="restaurant" />
-              <h2>{ restaurants[0].info.name}</h2>
-              <h3>{ restaurants[0].info.avgRating} star</h3>
-              <h4>{restaurants[0].info.cuisines.join(", ")}</h4>
-              <p>{restaurants[0].info.locality}</p>
+            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+props.restaurant.info?.cloudinaryImageId} alt="restaurant" />
+              <h2>{ props.restaurant.info?.name}</h2>
+              <h3>{ props.restaurant.info?.avgRating} star</h3>
+              <h4>{props.restaurant.info?.cuisines.join(", ")}</h4>
+              <p>{props.restaurant.info?.locality}</p>
           </div>
         )
       }
@@ -945,14 +945,15 @@ const imageid="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_au
       const Body=()=>{
         return (
           <div className="restaurant-list">
-          <RestaurantCard/>
-          <RestaurantCard/>
-          <RestaurantCard/>
-          <RestaurantCard/>
-          <RestaurantCard/>
-          <RestaurantCard/>
-          <RestaurantCard/>
-          <RestaurantCard/>
+          <RestaurantCard restaurant={restaurants[0]} />
+          <RestaurantCard restaurant={restaurants[1]} />
+          <RestaurantCard restaurant={restaurants[2]} />
+          <RestaurantCard restaurant={restaurants[3]} />
+          <RestaurantCard restaurant={restaurants[4]} />
+          <RestaurantCard restaurant={restaurants[5]} />
+          <RestaurantCard restaurant={restaurants[6]} />
+          <RestaurantCard restaurant={restaurants[7]} />
+          <RestaurantCard restaurant={restaurants[8]} />
           </div>
         )
       }
