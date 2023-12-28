@@ -930,13 +930,14 @@
 
 
       const RestaurantCard=({restaurant})=>{
+        const {name,cloudinaryImageId,avgRating,cuisines,locality}=restaurant.info;
         return(
           <div className="card">
-            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+restaurant.info?.cloudinaryImageId} alt="restaurant" />
-              <h2>{ restaurant.info?.name}</h2>
-              <h3>{ restaurant.info?.avgRating} star</h3>
-              <h4>{restaurant.info?.cuisines.join(", ")}</h4>
-              <p>{restaurant.info?.locality}</p>
+            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ cloudinaryImageId} alt="restaurant" />
+              <h2>{name}</h2>
+              <h3>{avgRating} star</h3>
+              <h4>{cuisines.join(", ")}</h4>
+              <p>{locality}</p>
           </div>
         )
       }
