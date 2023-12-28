@@ -933,11 +933,11 @@
     
         return(
           <div className="card">
-            {/* <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ cloudinaryImageId} alt="restaurant" /> */}
+            <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ cloudinaryImageId} alt="restaurant" />
               <h2>{name}</h2>
-              {/* <h3>{avgRating} star</h3> */}
+              <h3>{avgRating} star</h3>
               <h4>{cuisines.join(", ")}</h4>
-              {/* <p>{locality}</p> */}
+              <p>{locality}</p>
           </div>
         )
       }
@@ -945,15 +945,15 @@
       const Body=()=>{
         return (
           <div className="restaurant-list">
-          <RestaurantCard name={restaurants[0].info.name} cuisines={restaurants[0].info.cuisines} />
-          <RestaurantCard name={restaurants[1].info.name} cuisines={restaurants[1].info.cuisines} />
-          <RestaurantCard name={restaurants[2].info.name} cuisines={restaurants[2].info.cuisines} />
-          <RestaurantCard name={restaurants[3].info.name} cuisines={restaurants[3].info.cuisines} />
-          <RestaurantCard name={restaurants[4].info.name} cuisines={restaurants[4].info.cuisines} />
-          <RestaurantCard name={restaurants[5].info.name} cuisines={restaurants[5].info.cuisines} />
-          <RestaurantCard name={restaurants[6].info.name} cuisines={restaurants[6].info.cuisines} />
-          <RestaurantCard name={restaurants[7].info.name} cuisines={restaurants[7].info.cuisines} />
-          <RestaurantCard name={restaurants[8].info.name} cuisines={restaurants[8].info.cuisines} />
+          <RestaurantCard {...restaurants[0].info} />
+          <RestaurantCard {...restaurants[1].info} />
+          <RestaurantCard {...restaurants[2].info} />
+          <RestaurantCard {...restaurants[3].info} />
+          <RestaurantCard {...restaurants[4].info} />
+          <RestaurantCard {...restaurants[5].info} />
+          <RestaurantCard {...restaurants[6].info} />
+          <RestaurantCard {...restaurants[7].info} />
+          <RestaurantCard {...restaurants[8].info} />
           </div>
         )
       }
