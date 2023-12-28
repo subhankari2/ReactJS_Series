@@ -16,12 +16,12 @@
          </div>
         );
       };
-      const restaurantCard={
-        image:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/l4ppu8o6nhdospxcnrkh",
-        name:"Cafe Niloufer Premium Lounge",
+      const burgerKing={
+        image:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/mqr237klqgnu0w2pzd94",
+        name:" Burger King",
         rating:"4.2",
-        cuisines:["Bakery", "Bevarages", "Snacks", "Deserts"],
-        location:"Banjara Hills"
+        cuisines:["Burgers", "American"],
+        location:"Asian Satyam Mall"
       }
 
 
@@ -29,22 +29,28 @@
 
       const RestaurantCard=()=>{
         return(
-          <div className="card" id='restaurant'>
-            <img src={restaurantCard.image} alt="restaurant" />
-              <h2>{restaurantCard.name}</h2>
-              <h3>{restaurantCard.rating} star</h3>
-              <h4>{restaurantCard.cuisines.join(", ")}</h4>
-              <p>{restaurantCard.location}</p>
+          <div className="card">
+            <img src={burgerKing.image} alt="restaurant" />
+              <h2>{burgerKing.name}</h2>
+              <h3>{burgerKing.rating} star</h3>
+              <h4>{burgerKing.cuisines.join(", ")}</h4>
+              <p>{burgerKing.location}</p>
           </div>
         )
       }
 
       const Body=()=>{
         return (
-          <>
-          <div>Body component </div>
+          <div className="restaurant-list">
           <RestaurantCard/>
-          </>
+          <RestaurantCard/>
+          <RestaurantCard/>
+          <RestaurantCard/>
+          <RestaurantCard/>
+          <RestaurantCard/>
+          <RestaurantCard/>
+          <RestaurantCard/>
+          </div>
         )
       }
       const Footer = () =>{

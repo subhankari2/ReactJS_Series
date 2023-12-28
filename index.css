@@ -17,10 +17,15 @@
 }
 .card {
   width: 217px;
-  border: 1px solid #b8b1b1;
+  /* border: 1px solid #b8b1b1; */
   padding: 10px;
   box-shadow: 0px 0px 1px 0px #b8b1b1;
+  margin: 10px;
 }
 .card > img {
   width: 100%;
+}
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
 }
