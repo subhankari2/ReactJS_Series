@@ -930,7 +930,7 @@
 
 
       const RestaurantCard=({name,cloudinaryImageId,avgRating,cuisines,locality})=>{
-    
+    console.log(name,cloudinaryImageId,avgRating,cuisines,locality)
         return(
           <div className="card">
             <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ cloudinaryImageId} alt="restaurant" />
@@ -945,15 +945,12 @@
       const Body=()=>{
         return (
           <div className="restaurant-list">
-          <RestaurantCard {...restaurants[0].info} />
-          <RestaurantCard {...restaurants[1].info} />
-          <RestaurantCard {...restaurants[2].info} />
-          <RestaurantCard {...restaurants[3].info} />
-          <RestaurantCard {...restaurants[4].info} />
-          <RestaurantCard {...restaurants[5].info} />
-          <RestaurantCard {...restaurants[6].info} />
-          <RestaurantCard {...restaurants[7].info} />
-          <RestaurantCard {...restaurants[8].info} />
+            {
+              restaurants.map((restaurant)=>{
+                console.log(restaurant);
+               return <RestaurantCard {...restaurant.info}  key={restaurant.info.id} />
+              })
+            }
           </div>
         )
       }
