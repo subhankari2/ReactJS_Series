@@ -1,0 +1,48 @@
+.header {
+  box-shadow: 2px 3px 6px 3px #d3d3d3;
+  display: flex;
+  justify-content: space-between;
+}
+.header ul {
+  list-style-type: none;
+  display: flex;
+}
+.header ul > li {
+  padding: 20px;
+}
+.res-img {
+  width: 100%;
+  border-radius: 5px;
+}
+.restaurantContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.restaurantCard {
+  margin: 20px;
+  /*flex: 1 1 180px;  Grow and shrink as needed, base width of 200px */
+  padding: 10px;
+  border-radius: 5px;
+  height: auto;
+  width: 190px;
+  cursor: pointer;
+  /* border: 0.1px solid #d3d3d3; */
+  word-wrap: break-word;
+}
+.restaurantCard:hover {
+  box-shadow: 2px 3px 6px 3px #d3d3d3;
+}
+.appLogo {
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  margin: 15px;
+}
+.search {
+  display: flex;
+  margin: 15px 0px 3px 0px;
+  cursor: pointer;
+}
+.search input {
+  width: 27%;
+}

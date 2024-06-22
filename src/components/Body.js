@@ -1,38 +1,42 @@
-import { useState } from "react";
-import {RestaurantList} from "../Constants";
+import React,{useState} from "react";
 import RestaurantCard from "./RestaurantCard";
-
-
-
-function filterData(searchText,restaurants){
-return restaurants.filter((restaurant)=>restaurant.info.name.includes(searchText))
-
-}
-
+import {RESTAURANTS} from "../utils/MockData"
 const Body=()=>{
     const [searchText,setSearchText]=useState();
-    const [restaurants,setRestaurants]=useState(RestaurantList);
-    return (
-        <>
-        <div className="search-container">
-            <input className="search" placeholder="search" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
-            <button 
-            onClick={()=>{
-                const data=filterData(searchText,RestaurantList);
-                setRestaurants(data);
-            }
-            }
-            >search</button>
-        </div>
-        <div className="restaurant-list">
-        {
-            restaurants.map((restaurant)=>{
-                console.log(restaurant);
-                return <RestaurantCard {...restaurant.info}  key={restaurant.info.id} />
-            })
-        }
-        </div>
-        </>
-    )
+const [restaurantList,setRestaurantList]=useState(RESTAURANTS);
+// const searchText="KFC"
+    return(
+    
+    <div className="body">
+      
+<div className="search">
+  <input   className="searchInput" onChange={(event)=>setSearchText(event.target.value)} />
+  <button onClick={()=>{
+    let filteredList
+    console.log(searchText);
+    if(searchText =="" || searchText ==undefined || searchText =='undefined'|| searchText ==null){
+      filteredList=RESTAURANTS;
+    }
+    else{
+      filteredList= RESTAURANTS.filter((res)=>res.info.name==searchText)  
+    console.log("else block",filteredList);
+
+    }
+    console.log(filteredList);
+setRestaurantList(filteredList)
   }
-  export default Body;
+  }>Search</button>
+</div>
+
+    <div className="restaurantContainer">
+    {
+      restaurantList.map((res)=><RestaurantCard restaurant={res} />)
+    }
+    </div>    
+    
+     
+     
+    </div>
+    )}
+
+    export default Body;

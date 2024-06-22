@@ -1,23 +1,19 @@
- const Logo=()=>{
-  return(
-    <a href="/">
-    <img className="logo" alt="logo" src="https://i.pinimg.com/originals/e6/17/f1/e617f1bfb9af4d9cf132cd3dec0da072.jpg" />
-    </a>
-  )
-}
-const Header = () => {
-    return (
-     <div className="header">
+import React from "react";
+
+const Logo=()=> <img className="appLogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa5r4A5QPdNCibTUxtuqJc6HAcqb2pAjvyKg&s" alt="logo" />
+    
+
+const Header=()=>( 
+    <div className="header">
       <Logo/>
-     <div className="nav-items">
-        <ul >
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-     </div>
-     </div>
-    );
-  };
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Cart</li>
+        <li>more</li>
+      </ul>
+    </div>
+  );
+
   export default Header;
