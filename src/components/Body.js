@@ -1,42 +1,63 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import RestaurantCard from "./RestaurantCard";
-import {RESTAURANTS} from "../utils/MockData"
+import Shimmer from "./Shimmer";
+
 const Body=()=>{
     const [searchText,setSearchText]=useState();
-const [restaurantList,setRestaurantList]=useState(RESTAURANTS);
-// const searchText="KFC"
-    return(
-    
-    <div className="body">
-      
+    const [restaurantList,setRestaurantList]=useState([]);
+    const [filteredRestaurantList,setFilteredRestaurantList]=useState([]);
+
+useEffect(()=>{
+    console.log("inside useEff");
+    setRestaurantData();
+},[])
+
+const setRestaurantData=async()=>{
+const restData=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.445131&lng=78.447953&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+
+const json= await restData.json();
+// console.log(json)
+ console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+setFilteredRestaurantList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+setRestaurantList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+console.log(restaurantList)
+console.log(filteredRestaurantList)
+
+}
+// console.log("inside body component ")
+// if(restaurantList.length==0)return <Shimmer/>
+
+return restaurantList.length==0?<Shimmer/>:(
+
+ <div className="body">
 <div className="search">
   <input   className="searchInput" onChange={(event)=>setSearchText(event.target.value)} />
   <button onClick={()=>{
-    let filteredList
+    let filteredList;
     console.log(searchText);
     if(searchText =="" || searchText ==undefined || searchText =='undefined'|| searchText ==null){
-      filteredList=RESTAURANTS;
+      filteredList=restaurantList;
     }
     else{
-      filteredList= RESTAURANTS.filter((res)=>res.info.name==searchText)  
+      filteredList= restaurantList.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))  
     console.log("else block",filteredList);
 
     }
     console.log(filteredList);
-setRestaurantList(filteredList)
+setFilteredRestaurantList(filteredList)
   }
   }>Search</button>
 </div>
 
     <div className="restaurantContainer">
     {
-      restaurantList.map((res)=><RestaurantCard restaurant={res} />)
+      filteredRestaurantList.map((res)=><RestaurantCard key={res.info.id} restaurant={res} />)
     }
     </div>    
     
      
      
-    </div>
+    </div> 
     )}
 
     export default Body;
