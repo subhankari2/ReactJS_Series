@@ -47,3 +47,8 @@
 .search input {
   width: 27%;
 }
+.onlineStatus {
+  margin: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-shadow: 2px 2px 2px 2px #d3d3d3;
+}

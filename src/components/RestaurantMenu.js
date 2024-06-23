@@ -1,39 +1,31 @@
 import React, { useEffect,useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { MENU_URL } from '../utils/Constants';
+import { useParams } from 'react-router-dom';
 import Shimmer from './Shimmer';
-
+import useResMenuDetails from '../utils/useResMenuDetails'; 
 const RestaurantMenu = () => {
     const {id} = useParams();
-    const [resMenuDetails,setResMenuDetails]=useState();
-    const [menuItems,setMenuItems]=useState();
+    const resMenuDetails=useResMenuDetails(id);
+    // const [resMenuDetails,setResMenuDetails]=useState();
 
-useEffect(()=>{
-    fetchData();
-},[])
- const fetchData=async ()=>{
-    const response=await fetch(MENU_URL+id);
-    const res=await response.json();
-    setResMenuDetails(res?.data?.cards[2]?.card?.card?.info);
-    setMenuItems(res?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.itemCards)
- }
 
- if(resMenuDetails == undefined || resMenuDetails===null || menuItems == undefined)return<Shimmer/>
-
+ if(resMenuDetails == undefined || resMenuDetails===null )return<Shimmer/>
+const {name,avgRating,costForTwoMessage,cuisines,areaName,sla}=resMenuDetails?.cards[2]?.card?.card?.info;
+const {itemCards}=resMenuDetails?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+console.log("Items",itemCards)
   return (
     <div className="res-menu">
-<h3>{resMenuDetails.name}</h3>
-<h6>{resMenuDetails.avgRating} , {resMenuDetails.costForTwoMessage}</h6>
-<h5>{resMenuDetails.cuisines}</h5>
- <h5>Outlet {resMenuDetails.areaName}</h5>
- <p>{resMenuDetails.sla.minDeliveryTime}-{resMenuDetails.sla.maxDeliveryTime}mins</p> 
+<h3>{name}</h3>
+ <h6>{avgRating} , {costForTwoMessage}</h6>
+<h5>{cuisines}</h5>
+ <h5>Outlet {areaName}</h5>
+ <p>{sla.minDeliveryTime}-{sla.maxDeliveryTime}mins</p>  
 
 
 {
-    menuItems.map((res) => {
+    itemCards.map((res) => {
         const name = res?.card?.info?.name || "No name available";
         return (
-            <p>{name}</p>
+            <p key={res?.card?.info?.id}>{name}</p>
         );
     })
 }

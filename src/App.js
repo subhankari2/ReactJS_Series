@@ -1,4 +1,4 @@
-      import React from "react";
+      import React,{Suspense, lazy} from "react";
       import ReactDOM from "react-dom/client";      
       import Header from "./components/Header";
       import Body from "./components/Body"
@@ -9,6 +9,7 @@
       import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 
+const Grocery=lazy(()=>import("./components/GroceryStore"))
       const AppLayout=()=>{
         return (
           <>
@@ -40,6 +41,10 @@ import RestaurantMenu from "./components/RestaurantMenu";
             {
               path:"/menu/:id",
               element:<RestaurantMenu/>
+            },
+            {
+path:"/grocery",
+element:<Suspense fallback={<p>Loading...</p>}> <Grocery/></Suspense>
             }
           ],
           errorElement:<Error />
