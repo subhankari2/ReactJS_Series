@@ -1,14 +1,15 @@
 import React,{useEffect, useState} from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,{withPromotedLabel} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 const Body=()=>{
+
     const [searchText,setSearchText]=useState();
     const [restaurantList,setRestaurantList]=useState([]);
     const [filteredRestaurantList,setFilteredRestaurantList]=useState([]);
     const onlineStatus=useOnlineStatus();
-
+const RestWithPromotedLabel=withPromotedLabel(RestaurantCard);
 useEffect(()=>{
     console.log("inside useEff");
     setRestaurantData();
@@ -54,7 +55,11 @@ setFilteredRestaurantList(filteredList)
 
     <div className="restaurantContainer">
     {
-      filteredRestaurantList.map((res)=><Link  key={res.info.id} to={"/menu/"+res.info.id}><RestaurantCard  restaurant={res} /></Link>)
+      filteredRestaurantList.map((res)=><Link  key={res.info.id} to={"/menu/"+res.info.id}>
+        {res?.info?.isOpen==true?<RestWithPromotedLabel restaurant={res} />:<RestaurantCard  restaurant={res} />}
+        
+        
+        </Link>)
     }
     </div>    
     
