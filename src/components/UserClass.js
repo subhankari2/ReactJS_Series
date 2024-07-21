@@ -2,7 +2,7 @@
  class UserClass extends React.Component{
 
 constructor(props){
-    console.log("child constructor")
+    // console.log("child constructor")
     super(props)
 
     this.state={
@@ -14,11 +14,11 @@ constructor(props){
 componentDidMount()
 {
 
-    console.log(this.props.name+"child componentDidMount")
+    // console.log(this.props.name+"child componentDidMount")
 }
 
 render(){
-console.log("child render")
+// console.log("child render")
     return(
         <div>
         <h3>{this.props.name}</h3>

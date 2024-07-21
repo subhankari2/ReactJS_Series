@@ -1,9 +1,7 @@
 import React from "react";
 import {IMAGE_URL} from "../utils/MockData"
 const RestaurantCard=(props)=>{
-    // const name =props.resname;
-    // const cuisines =props.cuisines;
-    console.log(typeof(props),"restaurant");
+
     const name=props.restaurant.info.name;
     const cuisines=props.restaurant.info.cuisines;
     const Img_id=props.restaurant.info.cloudinaryImageId;
@@ -14,4 +12,17 @@ const RestaurantCard=(props)=>{
             <h6 className="mx-1">avgRating</h6>
             </div>
   }
+
+
+export const withLabelRestaurant=(RestaurantCard)=>{
+  return (res)=>{
+    return(
+      <div >
+        <label className=" absolute p-1 bg-red-500 text-gray-200 rounded-md  mt-1">Open Now</label>
+          <RestaurantCard  {...res}/>
+      </div>
+    )
+  }
+} 
+
   export default RestaurantCard;
